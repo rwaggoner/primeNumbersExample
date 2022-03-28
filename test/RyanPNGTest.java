@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * This testing class is just for testing some of the specific functions of the number generator implementation by
- * on its own, with being told what to do from a document.
+ * This testing class is just for testing some of the specific functions of the number generator implementation by on
+ * its own, with being told what to do from a document.
  */
 public class RyanPNGTest {
 
@@ -26,7 +26,71 @@ public class RyanPNGTest {
 
     //Start checking our results to make sure everything is looking ok
     Assert.assertTrue(generatedNumbers.isEmpty());
+  }
+
+  @Test
+  public void testIsPrime_minTrue() {
+
+    //The number we will use to pass in to our prime check test
+    final int primeInputTest = 2;
+
+    //Create our new PNG, so we can call the generate method...
+    RyanPNG ryanPNG = new RyanPNG();
+
+    //Pass our number into the prime check
+    final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
+
+    //Ensure the returned result is true
+    Assert.assertTrue(primeCheckResult);
 
   }
 
+  @Test
+  public void testIsPrime_True() {
+
+    //The number we will use to pass in to our prime check test
+    final int primeInputTest = 61;
+
+    //Create our new PNG, so we can call the generate method...
+    RyanPNG ryanPNG = new RyanPNG();
+
+    //Pass our number into the prime check
+    final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
+
+    //Ensure the returned result is true
+    Assert.assertTrue(primeCheckResult);
+
+  }
+
+  @Test
+  public void testIsPrime_false() {
+
+    //The number we will use to pass in to our prime check test
+    final int primeInputTest = 4;
+
+    //Create our new PNG, so we can call the generate method...
+    RyanPNG ryanPNG = new RyanPNG();
+
+    //Pass our number into the prime check
+    final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
+
+    //Ensure the returned result is false
+    Assert.assertFalse(primeCheckResult);
+  }
+
+  @Test
+  public void testIsPrime_negativeInput() {
+
+    //The number we will use to pass in to our prime check test
+    final int primeInputTest = -1;
+
+    //Create our new PNG, so we can call the generate method...
+    RyanPNG ryanPNG = new RyanPNG();
+
+    //Pass our number into the prime check
+    final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
+
+    //Ensure the returned result is false
+    Assert.assertFalse(primeCheckResult);
+  }
 }
