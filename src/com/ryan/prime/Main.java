@@ -22,11 +22,11 @@ public class Main {
     System.out.println(welcomeMessage);
 
     //Use our helper method to get some user input
-    int firstNumber = getNumberFromUser("first");
-    int secondNumber = getNumberFromUser("second");
+    final int firstNumber = getNumberFromUser("first");
+    final int secondNumber = getNumberFromUser("second");
 
     //Pass in the user input, and get a list of prime numbers back
-    List<Integer> primeNumberResults = primeNumberGenerator.generate(firstNumber, secondNumber);
+    final List<Integer> primeNumberResults = primeNumberGenerator.generate(firstNumber, secondNumber);
 
     //Print out our results
     System.out.println(Arrays.toString(primeNumberResults.toArray()));
@@ -34,23 +34,31 @@ public class Main {
 
 
   /**
-   * This helper method will gather and validate user input before we attempt
-   * to use any of their input to start our search for random numbers
-   * @param numberAdjective
-   * @return
+   * This helper method will gather and validate user input before we attempt to use any of their input to start our
+   * search for random numbers
    */
   private static int getNumberFromUser(String numberAdjective) {
 
-    Scanner inputScanner = new Scanner(System.in);
-    Boolean isValidNumber = false;
+    //The scanner we will use to get some user input...
+    final Scanner inputScanner = new Scanner(System.in);
+
+    //This is the boolean that will keep us in our while loop, trying to get a valid number from the user
+    //once we have a good number, we will set this to true to escape our loop
+    boolean isValidNumber = false;
+
+    //The number that will be retreived from the user, and return out of this method
     int number = 0;
 
+    //Stay in this while loop until we get a valid number
+    //With each input, we will check if it is a valid number. If is it not, give feedback and start over
+    //If it is a valid number, we will update our boolean, and get out of here
     while (!isValidNumber) {
 
       //Ask the user nicely to enter in a number
       System.out.printf("Please enter a valid (positive) integer for the %s number of your range to search... \n",
                         numberAdjective);
 
+      //Grab the input from the user, and start looking at it to see if it is valid
       final String numberInput = inputScanner.nextLine();
 
       try {
@@ -72,11 +80,14 @@ public class Main {
 
       } catch (Exception e) {
         //Something bad happened, so let's tell the user, then try again
-        System.out.printf("ERROR: The input '%s' does not appear to be a valid number, please enter a positive integer.\n",
-                          numberInput);
+        System.out.printf(
+            "ERROR: The input '%s' does not appear to be a valid number, please enter a positive integer.\n",
+            numberInput);
 
       }
     }
+
+    //Return that fantastic number we got
     return number;
   }
 
