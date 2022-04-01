@@ -5,8 +5,8 @@ The range of numbers will be given from the user via a console window.
 
 The requirements for the application can be [viewed in this PDF](https://github.com/rwaggoner/primeNumbersExample/blob/main/primeNumberExample.iml)
 
-Here is a small explanation of what a prime number is considered for this program
-https://www.splashlearn.com/math-vocabulary/algebra/prime-number
+Here is a small explanation of what a prime number is considered for this program.
+[Visit explanation](https://www.splashlearn.com/math-vocabulary/algebra/prime-number)
 
 
 To run the application..
