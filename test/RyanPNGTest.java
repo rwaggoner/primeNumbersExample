@@ -1,6 +1,7 @@
 import com.ryan.prime.RyanPNG;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -8,6 +9,13 @@ import org.junit.Test;
  * its own, with being told what to do from a document.
  */
 public class RyanPNGTest {
+
+  RyanPNG ryanPNG;
+
+  @BeforeClass
+  public void initializeThingsForTests() {
+    this.ryanPNG = new RyanPNG();
+  }
 
   /**
    * This will test a range that does not include any prime numbers
@@ -18,11 +26,8 @@ public class RyanPNGTest {
     final int startNumber = 0;
     final int endNumber = 1;
 
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
-
     //Call the number generator and grab the number is returns
-    List<Integer> generatedNumbers = ryanPNG.generate(startNumber, endNumber);
+    final List<Integer> generatedNumbers = ryanPNG.generate(startNumber, endNumber);
 
     //Start checking our results to make sure everything is looking ok
     Assert.assertTrue(generatedNumbers.isEmpty());
@@ -33,9 +38,6 @@ public class RyanPNGTest {
 
     //The number we will use to pass in to our prime check test
     final int primeInputTest = 2;
-
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
 
     //Pass our number into the prime check
     final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
@@ -51,9 +53,6 @@ public class RyanPNGTest {
     //The number we will use to pass in to our prime check test
     final int primeInputTest = 61;
 
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
-
     //Pass our number into the prime check
     final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
 
@@ -68,9 +67,6 @@ public class RyanPNGTest {
     //The number we will use to pass in to our prime check test
     final int primeInputTest = 4;
 
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
-
     //Pass our number into the prime check
     final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
 
@@ -83,9 +79,6 @@ public class RyanPNGTest {
 
     //The number we will use to pass in to our prime check test
     final int primeInputTest = -1;
-
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
 
     //Pass our number into the prime check
     final boolean primeCheckResult = ryanPNG.isPrime(primeInputTest);
@@ -103,9 +96,6 @@ public class RyanPNGTest {
 
     final int startNumber = 7900;
     final int endNumber = 7920;
-
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
 
     //Call the number generator and grab the number is returns
     List<Integer> generatedNumbers = ryanPNG.generate(startNumber, endNumber);
@@ -134,9 +124,6 @@ public class RyanPNGTest {
     final int startNumber = 7920;
     final int endNumber = 7900;
 
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
-
     //Call the number generator and grab the number is returns
     List<Integer> generatedNumbers = ryanPNG.generate(startNumber, endNumber);
 
@@ -161,11 +148,9 @@ public class RyanPNGTest {
    */
   @Test
   public void testFirst_26() {
+
     final int startNumber = 2;
     final int endNumber = 101;
-
-    //Create our new PNG, so we can call the generate method...
-    RyanPNG ryanPNG = new RyanPNG();
 
     //Call the number generator and grab the number is returns
     List<Integer> generatedNumbers = ryanPNG.generate(startNumber, endNumber);
