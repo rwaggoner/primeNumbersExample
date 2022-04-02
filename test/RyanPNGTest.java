@@ -10,11 +10,11 @@ import org.junit.Test;
  */
 public class RyanPNGTest {
 
-  RyanPNG ryanPNG;
+  private static RyanPNG ryanPNG;
 
   @BeforeClass
-  public void initializeThingsForTests() {
-    this.ryanPNG = new RyanPNG();
+  public static void initializeThingsForTests() {
+    ryanPNG = new RyanPNG();
   }
 
   /**
